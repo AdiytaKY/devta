@@ -1,4 +1,7 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {
+  createRouter,
+  createWebHashHistory,
+} from "vue-router";
 import HashGenerator from "../pages/HashGenerator/index.vue";
 import Base64Text from "../pages/Base64Text/index.vue";
 import DateToUnix from "../pages/DateToUnix/index.vue";
@@ -79,7 +82,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 

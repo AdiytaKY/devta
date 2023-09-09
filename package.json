@@ -3,10 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "main.cjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "electron:start": "npx concurrently -k \"npm run serve:front\" \"npm run watch\"",
+    "watch": "nodemon --exec npm run serve:electron",
+    "serve:electron": "set APP_IS_DEV=yes && npm run build && wait-on tcp:3000 && electron .",
+    "serve:front": "npm run dev",
+    "electron:builder": "electron-builder",
+    "electron:build": "set APP_IS_DEV=no && npm run build && npm run electron:builder"
   },
   "dependencies": {
     "@highlightjs/vue-plugin": "^2.1.0",
@@ -24,6 +31,7 @@
     "marked": "^7.0.0",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.43",
+    "nodemon": "^3.0.1",
     "pinia": "^2.1.6",
     "sql-formatter": "^12.2.4",
     "sql-query-identifier": "^2.5.0",
@@ -32,6 +40,10 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.4.9"
+    "concurrently": "^8.2.1",
+    "electron": "^26.2.0",
+    "electron-builder": "^24.6.4",
+    "vite": "^4.4.9",
+    "wait-on": "^7.0.1"
   }
 }

@@ -1,0 +1,4 @@
+{
+    "watch": ["main.cjs"],
+    "ext": "cjs"
+}
