@@ -12,7 +12,11 @@ import TimeZoneConverter from "../pages/TimeZoneConverter/index.vue";
 import JSONToYAML from "../pages/JSONConverter/index.vue";
 import JWTDebugger from "../pages/JWTDebugger/index.vue";
 import SQLFormatter from "../pages/SQLFormatter/index.vue";
+import PSQLFormatter from "../pages/PSQLParser/index.vue";
 import Index from "../pages/Index/index.vue";
+import URLParser from "../pages/URLParser/index.vue";
+import APITester from "../pages/APITester/index.vue";
+import ImagetoBase64 from "../pages/ImageToBase64/index.vue";
 
 const routes = [
   {
@@ -70,7 +74,16 @@ const routes = [
     component: SQLFormatter,
     name: "SQL Formatter",
   },
-
+  {
+    path: "/url-parser",
+    component: URLParser,
+    name: "URL Parser",
+  },
+  {
+    path: "/postgresql-url-parser",
+    component: PSQLFormatter,
+    name: "Postgres URL Parser",
+  },
   // {
   //   path: "/:slug",
   //   component: Module,
@@ -78,6 +91,16 @@ const routes = [
   {
     path: "/:path",
     redirect: { name: "Home" },
+  },
+  {
+    path: "/api-tester",
+    component: APITester,
+    name: "API Tester",
+  },
+  {
+    path: "/image-base64-converter",
+    component: ImagetoBase64,
+    name: "Image Base64 Converter",
   },
 ];
 
